@@ -31,13 +31,18 @@ limitations under the License.
 ## Usage
 
 ```javascript
+import cosine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-cosine@esm/index.mjs';
+```
+The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/random-array-cosine/tags). For example,
+
+```javascript
 import cosine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-cosine@v0.0.1-esm/index.mjs';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { factory } from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-cosine@v0.0.1-esm/index.mjs';
+import { factory } from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-cosine@esm/index.mjs';
 ```
 
 #### cosine( len, mu, s\[, options] )
@@ -309,7 +314,7 @@ var sz = random.byteLength;
 <script type="module">
 
 import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@esm/index.mjs';
-import cosine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-cosine@v0.0.1-esm/index.mjs';
+import cosine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-cosine@esm/index.mjs';
 
 // Create a function for generating random arrays originating from the same state:
 var random = cosine.factory( 2.0, 5.0, {
