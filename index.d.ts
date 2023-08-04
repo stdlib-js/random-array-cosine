@@ -18,7 +18,7 @@
 
 // TypeScript Version: 2.0
 
-/// <reference types="@stdlib/types"/>
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
 
 import { FloatDataType, FloatTypedArray } from '@stdlib/types/array';
 import * as random from '@stdlib/types/random';
