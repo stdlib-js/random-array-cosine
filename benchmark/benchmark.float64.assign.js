@@ -21,8 +21,9 @@
 // MODULES //
 
 var bench = require( '@stdlib/bench-harness' );
-var isnanf = require( '@stdlib/math-base-assert-is-nanf' );
+var isnan = require( '@stdlib/math-base-assert-is-nan' );
 var pow = require( '@stdlib/math-base-special-pow' );
+var zeros = require( '@stdlib/array-zeros' );
 var pkg = require( './../package.json' ).name;
 var random = require( './../lib' );
 
@@ -46,23 +47,21 @@ function createBenchmark( len ) {
 	* @param {Benchmark} b - benchmark instance
 	*/
 	function benchmark( b ) {
-		var opts;
+		var out;
 		var o;
 		var i;
 
-		opts = {
-			'dtype': 'float32'
-		};
+		out = zeros( len, 'float64' );
 
 		b.tic();
 		for ( i = 0; i < b.iterations; i++ ) {
-			o = random( len, 2.0, 5.0, opts );
-			if ( isnanf( o[ i%len ] ) ) {
+			o = random.assign( 2.0, 5.0, out );
+			if ( isnan( o[ i%len ] ) ) {
 				b.fail( 'should not return NaN' );
 			}
 		}
 		b.toc();
-		if ( isnanf( o[ i%len ] ) ) {
+		if ( isnan( o[ i%len ] ) ) {
 			b.fail( 'should not return NaN' );
 		}
 		b.pass( 'benchmark finished' );
@@ -91,7 +90,7 @@ function main() {
 	for ( i = min; i <= max; i++ ) {
 		len = pow( 10, i );
 		f = createBenchmark( len );
-		bench( pkg+':dtype=float32,len='+len, f );
+		bench( pkg+':assign:dtype=float64,len='+len, f );
 	}
 }
 

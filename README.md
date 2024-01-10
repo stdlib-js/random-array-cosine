@@ -29,11 +29,11 @@ limitations under the License.
   <p>To join us in bringing numerical computing to the web, get started by checking us out on <a href="https://github.com/stdlib-js/stdlib">GitHub</a>, and please consider <a href="https://opencollective.com/stdlib">financially supporting stdlib</a>. We greatly appreciate your continued support!</p>
 </details>
 
-# Raised Cosine Random Numbers
+# Cosine Random Numbers
 
 [![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
 
-> Create an array containing pseudorandom numbers drawn from a [raised cosine][@stdlib/random/base/cosine] distribution.
+> Create an array containing pseudorandom numbers drawn from a [cosine][@stdlib/random/base/cosine] distribution.
 
 <section class="installation">
 
@@ -63,7 +63,7 @@ var cosine = require( '@stdlib/random-array-cosine' );
 
 #### cosine( len, mu, s\[, options] )
 
-Returns an array containing pseudorandom numbers drawn from a [raised cosine][@stdlib/random/base/cosine] distribution.
+Returns an array containing pseudorandom numbers drawn from a [cosine][@stdlib/random/base/cosine] distribution.
 
 ```javascript
 var out = cosine( 10, 2.0, 5.0 );
@@ -92,9 +92,32 @@ var out = cosine( 10, 2.0, 5.0, opts );
 // returns [...]
 ```
 
+#### cosine.assign( mu, s, out )
+
+Fills an array with pseudorandom numbers drawn from a [cosine][@stdlib/random/base/cosine] distribution.
+
+```javascript
+var zeros = require( '@stdlib/array-zeros' );
+
+var x = zeros( 10, 'float64' );
+// returns <Float64Array>
+
+var out = cosine.assign( 2.0, 5.0, x );
+// returns <Float64Array>
+
+var bool = ( out === x );
+// returns true
+```
+
+The function has the following parameters:
+
+-   **mu**: mean.
+-   **s**: scale parameter.
+-   **out**: output array.
+
 #### cosine.factory( \[mu, s, ]\[options] )
 
-Returns a function for creating arrays containing pseudorandom numbers drawn from a [raised cosine][@stdlib/random/base/cosine] distribution.
+Returns a function for creating arrays containing pseudorandom numbers drawn from a [cosine][@stdlib/random/base/cosine] distribution.
 
 ```javascript
 var random = cosine.factory();
@@ -106,7 +129,7 @@ var len = out.length;
 // returns 10
 ```
 
-If provided `mu` and `s`, the returned generator returns random variates from the specified distribution.
+If provided distribution parameters, the returned generator returns random variates from the specified distribution.
 
 ```javascript
 var random = cosine.factory( 2.0, 5.0 );
@@ -118,7 +141,7 @@ out = random( 10 );
 // returns <Float64Array>
 ```
 
-If not provided `mu` and `s`, the returned generator requires that both parameters be provided at each invocation.
+If not provided distribution parameters, the returned generator requires that distribution parameters be provided at each invocation.
 
 ```javascript
 var random = cosine.factory();
@@ -362,13 +385,6 @@ logEach( '%f', x4 );
 
 <section class="related">
 
-* * *
-
-## See Also
-
--   <span class="package-name">[`@stdlib/random-base/cosine`][@stdlib/random/base/cosine]</span><span class="delimiter">: </span><span class="description">raised cosine distributed pseudorandom numbers.</span>
--   <span class="package-name">[`@stdlib/random-strided/cosine`][@stdlib/random/strided/cosine]</span><span class="delimiter">: </span><span class="description">fill a strided array with pseudorandom numbers drawn from a raised cosine distribution.</span>
-
 </section>
 
 <!-- /.related -->
@@ -449,12 +465,6 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
 
 [@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
-
-<!-- <related-links> -->
-
-[@stdlib/random/strided/cosine]: https://github.com/stdlib-js/random-strided-cosine
-
-<!-- </related-links> -->
 
 </section>
 
