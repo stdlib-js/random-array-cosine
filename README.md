@@ -29,11 +29,11 @@ limitations under the License.
   <p>To join us in bringing numerical computing to the web, get started by checking us out on <a href="https://github.com/stdlib-js/stdlib">GitHub</a>, and please consider <a href="https://opencollective.com/stdlib">financially supporting stdlib</a>. We greatly appreciate your continued support!</p>
 </details>
 
-# Cosine Random Numbers
+# Raised Cosine Random Numbers
 
 [![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
 
-> Create an array containing pseudorandom numbers drawn from a [cosine][@stdlib/random/base/cosine] distribution.
+> Create an array containing pseudorandom numbers drawn from a [raised cosine][@stdlib/random/base/cosine] distribution.
 
 <section class="installation">
 
@@ -63,7 +63,7 @@ var cosine = require( '@stdlib/random-array-cosine' );
 
 #### cosine( len, mu, s\[, options] )
 
-Returns an array containing pseudorandom numbers drawn from a [cosine][@stdlib/random/base/cosine] distribution.
+Returns an array containing pseudorandom numbers drawn from a [raised cosine][@stdlib/random/base/cosine] distribution.
 
 ```javascript
 var out = cosine( 10, 2.0, 5.0 );
@@ -94,7 +94,7 @@ var out = cosine( 10, 2.0, 5.0, opts );
 
 #### cosine.assign( mu, s, out )
 
-Fills an array with pseudorandom numbers drawn from a [cosine][@stdlib/random/base/cosine] distribution.
+Fills an array with pseudorandom numbers drawn from a [raised cosine][@stdlib/random/base/cosine] distribution.
 
 ```javascript
 var zeros = require( '@stdlib/array-zeros' );
@@ -117,7 +117,7 @@ The function has the following parameters:
 
 #### cosine.factory( \[mu, s, ]\[options] )
 
-Returns a function for creating arrays containing pseudorandom numbers drawn from a [cosine][@stdlib/random/base/cosine] distribution.
+Returns a function for creating arrays containing pseudorandom numbers drawn from a [raised cosine][@stdlib/random/base/cosine] distribution.
 
 ```javascript
 var random = cosine.factory();
